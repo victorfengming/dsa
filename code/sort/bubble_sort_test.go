@@ -1,4 +1,18 @@
-package main
+package test
+
+import (
+	"fmt"
+	"testing"
+)
+
+func TestBubble(t *testing.T) {
+	// 构造数据
+	data := []int{
+		7, 3, 9, 6,
+	}
+	data_sorted := MaoPaoSort(data)
+	fmt.Print(data_sorted)
+}
 
 // 冒泡排序
 // Written by victor
@@ -18,13 +32,4 @@ func MaoPaoSort(data []int) []int {
 		}
 	}
 	return data
-}
-
-func main() {
-	// 构造数据
-	data := []int{
-		7, 3, 9, 6,
-	}
-	data_sorted := MaoPaoSort(data)
-	print(data_sorted)
 }
