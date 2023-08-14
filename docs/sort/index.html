@@ -1,0 +1,364 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>几种排序 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../08/11/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    08
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../08/10/">
+            
+                <a href="../08/10/">
+            
+                    
+                    0810
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../08/11/">
+            
+                <a href="../08/11/">
+            
+                    
+                    0811
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    几种排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >几种排序</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="markdown prose w-full break-words dark:prose-invert light"><p>&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#xFF0C;&#x4EE5;&#x4E0B;&#x662F;&#x51E0;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x7684;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x3001;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x89E3;&#x91CA;&#x548C;&#x7B80;&#x8981;&#x4ECB;&#x7ECD;&#x3002;</p><p><strong>1. &#x5192;&#x6CE1;&#x6392;&#x5E8F;&#xFF1A;</strong></p><p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</p><pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>golang</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-golang"><span class="hljs-keyword">func</span> bubbleSort(arr []<span class="hljs-keyword">int</span>) {
+    n := <span class="hljs-built_in">len</span>(arr)
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; n<span class="hljs-number">-1</span>; i++ {
+        <span class="hljs-keyword">for</span> j := <span class="hljs-number">0</span>; j &lt; n-i<span class="hljs-number">-1</span>; j++ {
+            <span class="hljs-keyword">if</span> arr[j] &gt; arr[j+<span class="hljs-number">1</span>] {
+                arr[j], arr[j+<span class="hljs-number">1</span>] = arr[j+<span class="hljs-number">1</span>], arr[j]
+            }
+        }
+    }
+}
+</code></div></div></pre><p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x89E3;&#x91CA;&#xFF1A;
+&#x5192;&#x6CE1;&#x6392;&#x5E8F;&#x7684;&#x5E73;&#x5747;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F; O(n^2)&#xFF0C;&#x5176;&#x4E2D; n &#x662F;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x7531;&#x4E8E;&#x9700;&#x8981;&#x6BD4;&#x8F83;&#x76F8;&#x90BB;&#x5143;&#x7D20;&#x5E76;&#x4EA4;&#x6362;&#x4F4D;&#x7F6E;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x4E0B;&#x9700;&#x8981;&#x8FDB;&#x884C; n*(n-1)/2 &#x6B21;&#x6BD4;&#x8F83;&#x548C;&#x4EA4;&#x6362;&#x3002;</p><p><strong>2. &#x63D2;&#x5165;&#x6392;&#x5E8F;&#xFF1A;</strong></p><p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</p><pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>golang</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-golang"><span class="hljs-keyword">func</span> insertionSort(arr []<span class="hljs-keyword">int</span>) {
+    n := <span class="hljs-built_in">len</span>(arr)
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">1</span>; i &lt; n; i++ {
+        key := arr[i]
+        j := i - <span class="hljs-number">1</span>
+        <span class="hljs-keyword">for</span> j &gt;= <span class="hljs-number">0</span> &amp;&amp; arr[j] &gt; key {
+            arr[j+<span class="hljs-number">1</span>] = arr[j]
+            j--
+        }
+        arr[j+<span class="hljs-number">1</span>] = key
+    }
+}
+</code></div></div></pre><p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x89E3;&#x91CA;&#xFF1A;
+&#x63D2;&#x5165;&#x6392;&#x5E8F;&#x7684;&#x5E73;&#x5747;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F; O(n^2)&#xFF0C;&#x5176;&#x4E2D; n &#x662F;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x5728;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F53;&#x6570;&#x7EC4;&#x662F;&#x9006;&#x5E8F;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C; n*(n-1)/2 &#x6B21;&#x6BD4;&#x8F83;&#x548C;&#x79FB;&#x52A8;&#x3002;</p><p><strong>3. &#x5F52;&#x5E76;&#x6392;&#x5E8F;&#xFF1A;</strong></p><p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</p><pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>golang</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-golang"><span class="hljs-keyword">func</span> mergeSort(arr []<span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(arr) &lt;= <span class="hljs-number">1</span> {
+        <span class="hljs-keyword">return</span> arr
+    }
+
+    mid := <span class="hljs-built_in">len</span>(arr) / <span class="hljs-number">2</span>
+    left := mergeSort(arr[:mid])
+    right := mergeSort(arr[mid:])
+
+    <span class="hljs-keyword">return</span> merge(left, right)
+}
+
+<span class="hljs-keyword">func</span> merge(left, right []<span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
+result := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">int</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(left)+<span class="hljs-built_in">len</span>(right))
+i, j := <span class="hljs-number">0</span>, <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> i &lt; <span class="hljs-built_in">len</span>(left) &amp;&amp; j &lt; <span class="hljs-built_in">len</span>(right) {
+<span class="hljs-keyword">if</span> left[i] &lt; right[j] {
+result = <span class="hljs-built_in">append</span>(result, left[i])
+i++
+} <span class="hljs-keyword">else</span> {
+result = <span class="hljs-built_in">append</span>(result, right[j])
+j++
+}
+}
+result = <span class="hljs-built_in">append</span>(result, left[i:]...)
+result = <span class="hljs-built_in">append</span>(result, right[j:]...)
+<span class="hljs-keyword">return</span> result
+}
+</code></div></div></pre><p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x89E3;&#x91CA;&#xFF1A;
+&#x5F52;&#x5E76;&#x6392;&#x5E8F;&#x7684;&#x5E73;&#x5747;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F; O(n log n)&#xFF0C;&#x5176;&#x4E2D; n &#x662F;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x5B83;&#x91C7;&#x7528;&#x5206;&#x6CBB;&#x6CD5;&#xFF0C;&#x5C06;&#x6570;&#x7EC4;&#x5206;&#x6210;&#x4E24;&#x4E2A;&#x5B50;&#x6570;&#x7EC4;&#xFF0C;&#x5206;&#x522B;&#x6392;&#x5E8F;&#x540E;&#x518D;&#x5408;&#x5E76;&#x3002;</p><p><strong>4. &#x9009;&#x62E9;&#x6392;&#x5E8F;&#xFF1A;</strong></p><p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</p><pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>golang</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-golang"><span class="hljs-keyword">func</span> selectionSort(arr []<span class="hljs-keyword">int</span>) {
+n := <span class="hljs-built_in">len</span>(arr)
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; n<span class="hljs-number">-1</span>; i++ {
+minIndex := i
+<span class="hljs-keyword">for</span> j := i + <span class="hljs-number">1</span>; j &lt; n; j++ {
+<span class="hljs-keyword">if</span> arr[j] &lt; arr[minIndex] {
+minIndex = j
+}
+}
+arr[i], arr[minIndex] = arr[minIndex], arr[i]
+}
+}
+</code></div></div></pre><p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x89E3;&#x91CA;&#xFF1A;
+&#x9009;&#x62E9;&#x6392;&#x5E8F;&#x7684;&#x5E73;&#x5747;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F; O(n^2)&#xFF0C;&#x5176;&#x4E2D; n &#x662F;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x6BCF;&#x6B21;&#x5728;&#x672A;&#x6392;&#x5E8F;&#x90E8;&#x5206;&#x627E;&#x5230;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4EA4;&#x6362;&#x5230;&#x5DF2;&#x6392;&#x5E8F;&#x90E8;&#x5206;&#x7684;&#x672B;&#x5C3E;&#x3002;</p><p><strong>5. &#x5E0C;&#x5C14;&#x6392;&#x5E8F;&#xFF1A;</strong></p><p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</p><pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>golang</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-golang"><span class="hljs-keyword">func</span> shellSort(arr []<span class="hljs-keyword">int</span>) {
+n := <span class="hljs-built_in">len</span>(arr)
+gap := n / <span class="hljs-number">2</span>
+<span class="hljs-keyword">for</span> gap &gt; <span class="hljs-number">0</span> {
+<span class="hljs-keyword">for</span> i := gap; i &lt; n; i++ {
+temp := arr[i]
+j := i
+<span class="hljs-keyword">for</span> j &gt;= gap &amp;&amp; arr[j-gap] &gt; temp {
+arr[j] = arr[j-gap]
+j -= gap
+}
+arr[j] = temp
+}
+gap /= <span class="hljs-number">2</span>
+}
+}
+</code></div></div></pre><p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x89E3;&#x91CA;&#xFF1A;
+&#x5E0C;&#x5C14;&#x6392;&#x5E8F;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x589E;&#x91CF;&#x5E8F;&#x5217;&#x7684;&#x9009;&#x62E9;&#x3002;&#x6700;&#x597D;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x662F; O(n log n)&#xFF0C;&#x4F46;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x80FD;&#x63A5;&#x8FD1; O(n^2)&#x3002;&#x5E0C;&#x5C14;&#x6392;&#x5E8F;&#x662F;&#x63D2;&#x5165;&#x6392;&#x5E8F;&#x7684;&#x6539;&#x8FDB;&#x7248;&#x672C;&#xFF0C;&#x901A;&#x8FC7;&#x9010;&#x6B65;&#x51CF;&#x5C0F;&#x6B65;&#x957F;&#x6765;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5206;&#x7EC4;&#x548C;&#x6392;&#x5E8F;&#x3002;</p><p>&#x8FD9;&#x4E9B;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x5404;&#x6709;&#x7279;&#x70B9;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x573A;&#x666F;&#x3002;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x53D6;&#x51B3;&#x4E8E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x7684;&#x89C4;&#x6A21;&#x548C;&#x7279;&#x6027;&#x3002;</p></div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../08/11/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 0811">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"几种排序","level":"1.3","depth":1,"previous":{"title":"0811","level":"1.2.2","depth":2,"path":"08/11/index.md","ref":"08/11/index.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sort/index.md","mtime":"2023-08-14T14:56:43.069Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-14T14:56:49.673Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
