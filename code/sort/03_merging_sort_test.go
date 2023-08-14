@@ -26,7 +26,7 @@ func mergingSortVictor(data []int) []int {
 	rightList := mergingSortVictor(right)
 	// 合并两个数组
 	//双指针遍历
-	res := make([]int, 0)
+	res := make([]int, len(data))
 	left_index := 0
 	right_index := 0
 	for {
