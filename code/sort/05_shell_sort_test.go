@@ -36,6 +36,5 @@ func TestShellSort(t *testing.T) {
 	fmt.Println("排序前:", arr)
 
 	shellSort(arr)
-
 	fmt.Println("排序后:", arr)
 }
