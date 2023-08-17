@@ -34,7 +34,6 @@ func TestShellSort(t *testing.T) {
 
 	arr := []int{12, 34, 54, 2, 3}
 	fmt.Println("排序前:", arr)
-
 	shellSort(arr)
 	fmt.Println("排序后:", arr)
 }
