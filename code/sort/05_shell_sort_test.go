@@ -22,7 +22,6 @@ func shellSort(arr []int) {
 				arr[j] = arr[j-gap]
 				j -= gap
 			}
-
 			// 将当前元素插入到合适的位置
 			arr[j] = temp
 		}
