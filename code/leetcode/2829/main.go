@@ -2,31 +2,33 @@ package main
 
 func minimumSum(n int, k int) int {
 	j := 1
-	jslice := make([]int, 0)
-	for i := 0; i < n; i++ {
-		// 先判断j是不是比k大了如果比k大了就不会相等,直接存就行了
-		if j >= k {
-			jslice = append(jslice, j)
-			j += 1
-			continue
-		}
-	mark:
-		// 判断k是否和前面的能够组成和为k的, 遍历jslice
-		for _, value := range jslice {
-			if j+value == k {
-				j += 1
-				goto mark
-			}
-		}
-		// 如果符合条件, 就存放到数组中
-		jslice = append(jslice, j)
-		j += 1 // 累加
-	}
 	// 初始化一个变量用于存储总和
 	sum := 0
-	// 遍历数组并将值相加
-	for _, value := range jslice {
-		sum += value
+	jmap := make(map[int]interface{}, 0)
+	i := 0
+	for {
+		if i >= n {
+			break
+		}
+		// 先判断j是不是比k大了如果比k大了就不会相等,直接存就行了
+		if j >= k {
+			sum += j
+			j += 1
+			i += 1
+			continue
+		}
+		if _, ok := jmap[j]; ok {
+
+		} else {
+			sum += j
+			jmap[k-j] = nil
+			i += 1
+		}
+		j += 1
 	}
 	return sum
+}
+
+func main() {
+	minimumSum(5, 4)
 }
